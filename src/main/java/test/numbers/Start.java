@@ -24,9 +24,10 @@ public class Start {
         while (continueEnter) {
             // String input
             String name = myObj.nextLine();
-            if (END_OF_APP.equals(name)) {
+            if (END_OF_APP.equalsIgnoreCase(name)) {
                 continueEnter = false;
                 application.calculation(name);
+                application.printTotalInfo();
 
             } else if (SIGN_TOTAL_INFO.equalsIgnoreCase(name)) {
                 application.printTotalInfo();

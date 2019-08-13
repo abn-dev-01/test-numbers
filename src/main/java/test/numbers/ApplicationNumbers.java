@@ -35,10 +35,14 @@ public class ApplicationNumbers {
 //    }
 
     public void calculation(String input) {
-        double parsedNumber = Double.parseDouble(input);
-        updateMinimum(parsedNumber);
-        updateMaximum(parsedNumber);
-        updateAverage(parsedNumber);
+        try {
+            double parsedNumber = Double.parseDouble(input);
+            updateMinimum(parsedNumber);
+            updateMaximum(parsedNumber);
+            updateAverage(parsedNumber);
+        } catch (NumberFormatException e) {
+            System.out.println("Incorrect value! Allowed only number, character `Z` or `=`.");
+        }
     }
 
     protected void updateAverage(double parsedNumber) {
@@ -59,8 +63,9 @@ public class ApplicationNumbers {
     }
 
     public void printTotalInfo() {
-        System.out.println("Minimum .... : " + minimum);
-        System.out.println("Maximum .... : " + maximum);
-        System.out.println("Average .... : " + (count > 0 ? sum / count : 0.0D));
+        System.out.println("Minimum ...... : " + minimum);
+        System.out.println("Maximum ...... : " + maximum);
+        System.out.println("Total numbers  : " + count);
+        System.out.println("Average ...... : " + (count > 0 ? sum / count : 0.0D));
     }
 }
