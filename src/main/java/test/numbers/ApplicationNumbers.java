@@ -12,27 +12,37 @@ public class ApplicationNumbers {
     private int count = 0;
     private double sum = 0.0D;
 
-//    public void start() {
-//        Scanner myObj = new Scanner(System.in);
-//
-//        System.out.println("Enter at one row a number, `Z` for finish or `=` to print total");
-//        boolean continueEnter = true;
-//
-//        while (continueEnter) {
-//            // String input
-//            String name = myObj.nextLine();
-//            if (END_OF_APP.equals(name)) {
-//                continueEnter = false;
-//                calculation(name);
-//
-//            } else if (SIGN_TOTAL_INFO.equalsIgnoreCase(name)) {
-//                printTotalInfo();
-//            } else {
-//                calculation(name);
-//            }
-//        }
-//        System.out.println("Application stopped.");
-//    }
+    public double getMinimum() {
+        return minimum;
+    }
+
+    public void setMinimum(double minimum) {
+        this.minimum = minimum;
+    }
+
+    public double getMaximum() {
+        return maximum;
+    }
+
+    public void setMaximum(double maximum) {
+        this.maximum = maximum;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public double getSum() {
+        return sum;
+    }
+
+    public void setSum(double sum) {
+        this.sum = sum;
+    }
 
     public void calculation(String input) {
         try {
@@ -45,19 +55,27 @@ public class ApplicationNumbers {
         }
     }
 
+    /**
+     * This method have to be onvoked last after update minimum & maximum.
+     * @param parsedNumber
+     */
     protected void updateAverage(double parsedNumber) {
         count++;
         sum += parsedNumber;
     }
 
     protected void updateMaximum(double parsedNumber) {
-        if (parsedNumber > maximum) {
+        if (count == 0) {
+            maximum = parsedNumber;
+        } else if (parsedNumber > maximum) {
             maximum = parsedNumber;
         }
     }
 
     protected void updateMinimum(double parsedNumber) {
-        if (parsedNumber < minimum) {
+        if (count == 0) {
+            minimum = parsedNumber;
+        } else if (parsedNumber < minimum) {
             minimum = parsedNumber;
         }
     }
