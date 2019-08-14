@@ -7,7 +7,7 @@ import org.junit.Test;
 /**
  * Tests for {@link ApplicationNumbers}
  */
-public class StartTests {
+public class ApplicationNumbersTests {
 
     private ApplicationNumbers applicationNumbers;
 

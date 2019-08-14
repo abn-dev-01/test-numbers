@@ -1,11 +1,6 @@
 package test.numbers;
 
-import java.util.Scanner;
-
 public class ApplicationNumbers {
-
-    public static final String END_OF_APP = "Z";
-    public static final String SIGN_TOTAL_INFO = "=";
 
     private double minimum = 0.0D;
     private double maximum = 0.0D;
@@ -44,6 +39,10 @@ public class ApplicationNumbers {
         this.sum = sum;
     }
 
+    public double getAverage() {
+        return (count > 0 ? sum / count : 0.0D);
+    }
+
     public void calculation(String input) {
         try {
             double parsedNumber = Double.parseDouble(input);
@@ -56,7 +55,8 @@ public class ApplicationNumbers {
     }
 
     /**
-     * This method have to be onvoked last after update minimum & maximum.
+     * This method have to be invoked last, after the updating minimum & maximum.
+     *
      * @param parsedNumber
      */
     protected void updateAverage(double parsedNumber) {
@@ -80,10 +80,4 @@ public class ApplicationNumbers {
         }
     }
 
-    public void printTotalInfo() {
-        System.out.println("Minimum ...... : " + minimum);
-        System.out.println("Maximum ...... : " + maximum);
-        System.out.println("Total numbers  : " + count);
-        System.out.println("Average ...... : " + (count > 0 ? sum / count : 0.0D));
-    }
 }

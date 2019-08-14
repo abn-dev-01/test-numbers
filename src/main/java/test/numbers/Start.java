@@ -3,22 +3,34 @@ package test.numbers;
 
 import java.util.Scanner;
 
-import static test.numbers.ApplicationNumbers.END_OF_APP;
-import static test.numbers.ApplicationNumbers.SIGN_TOTAL_INFO;
+import static java.lang.System.out;
 
 /**
- * Main class. Entry point for Application.
+ * This is a console application. It prints and get all data from the console. Information are supposed to be typed by
+ * a user of the application. The user can type any numbers, character Z or z, and sign =.
+ * <p>
+ * Numbers - it is possible enter double numbers or integer.
+ * Z or z - use it to finish the application.
+ * Sign = - enter it when you wanna see
+ * 1) the smallest number it has encountered so far
+ * 2) the largest number it has encountered so far
+ * 3) the average of all numbers it has encountered so far</pre>
+ * <p>
+ * This class is a Main class in the Application. It is Entry point for it. Run it.
  */
 public class Start {
+
+    private static final String END_OF_APP = "Z";
+    private static final String SIGN_TOTAL_INFO = "=";
 
     public static void main(String[] args) {
 
         ApplicationNumbers application = new ApplicationNumbers();
-//        application.start();
+        ApplicationNumbersPrint print = new ApplicationNumbersPrint(application);
 
         Scanner myObj = new Scanner(System.in);
 
-        System.out.println("Enter at one row a number, `Z` for finish or `=` to print total");
+        out.println("Enter at one row a number, `Z` for finish or `=` to print total");
         boolean continueEnter = true;
 
         while (continueEnter) {
@@ -27,15 +39,15 @@ public class Start {
             if (END_OF_APP.equalsIgnoreCase(name)) {
                 continueEnter = false;
                 application.calculation(name);
-                application.printTotalInfo();
+                print.printTotalInfo();
 
             } else if (SIGN_TOTAL_INFO.equalsIgnoreCase(name)) {
-                application.printTotalInfo();
+                print.printTotalInfo();
             } else {
                 application.calculation(name);
             }
         }
-        System.out.println("Application stopped.");
+        out.println("Application stopped.");
 
     }
 }
