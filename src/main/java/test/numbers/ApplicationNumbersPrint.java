@@ -7,10 +7,10 @@ import java.util.Objects;
  */
 public class ApplicationNumbersPrint {
 
-    public static final String MINIMUM = "Minimum ...... : ";
-    public static final String MAXIMUM = "Maximum ...... : ";
-    public static final String TOTAL_NUMBERS = "Total numbers  : ";
-    public static final String AVERAGE = "Average ...... : ";
+    public static final String MINIMUM = ResourceUtil.getMessageString("minimum");
+    public static final String MAXIMUM = ResourceUtil.getMessageString("maximum");
+    public static final String TOTAL_NUMBERS = ResourceUtil.getMessageString("total.numbers");
+    public static final String AVERAGE = ResourceUtil.getMessageString("average");
 
     private ApplicationNumbers applicationNumbers;
 

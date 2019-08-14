@@ -30,7 +30,7 @@ public class Start {
 
         Scanner myObj = new Scanner(System.in);
 
-        out.println("Enter at one row a number, `Z` for finish or `=` to print total");
+        out.println(ResourceUtil.getMessageString("prompt.label"));
         boolean continueEnter = true;
 
         while (continueEnter) {
@@ -47,7 +47,7 @@ public class Start {
                 application.calculation(name);
             }
         }
-        out.println("Application stopped.");
+        out.println(ResourceUtil.getMessageString("application.stopped"));
 
     }
 }

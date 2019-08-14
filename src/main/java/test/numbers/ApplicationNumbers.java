@@ -1,5 +1,7 @@
 package test.numbers;
 
+import java.util.ResourceBundle;
+
 public class ApplicationNumbers {
 
     private double minimum = 0.0D;
@@ -50,7 +52,7 @@ public class ApplicationNumbers {
             updateMaximum(parsedNumber);
             updateAverage(parsedNumber);
         } catch (NumberFormatException e) {
-            System.out.println("Incorrect value! Allowed only number, character `Z` or `=`.");
+            System.out.println(ResourceUtil.getResourceBundle().getString("incorrect.value"));
         }
     }
 
